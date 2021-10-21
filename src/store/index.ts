@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers } from 'redux'
 import counterReducer  from "./reducer/counter" 
+import userReducer  from "./reducer/user" 
 
 import {
   persistReducer,
@@ -16,12 +18,18 @@ const persistConfig = {
   key: 'root',
   version: 1,
   storage,
+  blacklist: []
 }
 
-const counter_persistedReducer = persistReducer(persistConfig, counterReducer)
+const rootReducer = combineReducers({
+  user: userReducer,
+  counter: counterReducer,
+})
+
+const counter_persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
-  reducer: { counter : counter_persistedReducer },
+  reducer: counter_persistedReducer ,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
