@@ -1,8 +1,7 @@
-
 export const routerPathProtected =  {
     Dashboard : '/dashboard',
 }
 
 export const routerPathPublic =  {
-    Login : '/dashboard',
+    Login : '/login',
 }

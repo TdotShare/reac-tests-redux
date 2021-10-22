@@ -1,33 +1,28 @@
-import React , {  useState , useEffect }from 'react'
-import {useHistory , Route} from 'react-router-dom'
-import { routerPathProtected } from './routerPath'
+import React, { useState, useEffect } from 'react'
+import { useHistory, Route } from 'react-router-dom'
+import { routerPathProtected } from './RouterPath'
 
 
 function ProtectedRoutes() {
 
     const history = useHistory()
 
-    const [ authen  , setAuthen ] = useState<boolean>(false)
-    const [ status  , setStatus ] = useState<boolean>(false)
+    const [authen] = useState<boolean>(true)
 
     useEffect(() => {
 
-        if(authen){
-            setStatus(true)
-        }else{
-            setStatus(false)
-        }
+        if (authen) {
+            console.log("true login !")
+        } else {
 
-        if(status){
-            
-        }else{
             history.replace(`/login`)
         }
-        
-    }, [])
+    
+    }, [authen , history])
+
     return (
         <>
-             <Route exact path={`${routerPathProtected.Dashboard}`} component={() => <p>Dashboard Pages</p>} />
+            <Route exact path={`${routerPathProtected.Dashboard}`} component={() => <p>Dashboard Pages</p>} />
         </>
     )
 }

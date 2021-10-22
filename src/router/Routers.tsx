@@ -1,8 +1,8 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoginScreen from '../screen/auth/login';
 import ProtectedRoutes from './ProtectedRoutes';
-import { routerPathProtected  , routerPathPublic } from './routerPath';
+import { routerPathProtected  , routerPathPublic } from './RouterPath';
 
 
 
