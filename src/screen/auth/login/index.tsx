@@ -16,7 +16,7 @@ function LoginScreen() {
         <div>
             Login Pages
             <br />
-            <button onClick={() => actionLogin()}>กดเข้าสู่ระบบ</button>
+            <button onClick={() => actionLogin()}>กดเข้าสู่ระบบ !</button>
         </div>
     )
 }
